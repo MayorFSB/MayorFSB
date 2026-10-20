@@ -1,3 +1,4 @@
+<img src="https://github.com/MayorFSB/MayorFSB/raw/main/sakura.svg" alt="falling sakura" width="100%" />
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFE4EC,100:FFB7C5&height=180&section=header&text=MayorFSB&fontSize=55&fontColor=8A1538&animation=fadeIn&fontAlignY=35" alt="header" />
