@@ -1,15 +1,28 @@
 <svg xmlns="http://w3.org" viewBox="0 0 800 400" width="100%" height="100%">
   <defs>
-    <!-- Небесный розово-голубой градиент (закат/рассвет) -->
+    <!-- Градиенты из Шага 1 -->
     <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#a1c4fd" />  <!-- Нежно-голубой -->
-      <stop offset="100%" stop-color="#c2e9fb" /> <!-- Переход в розово-сиреневый -->
+      <stop offset="0%" stop-color="#b8d2f8" />
+      <stop offset="100%" stop-color="#fbc7d4" /> <!-- Сделали чуть теплее к розовому -->
     </linearGradient>
 
-    <!-- Стили для анимации (будем дополнять) -->
+    <!-- Стили для анимации -->
     <style>
-      .sky {
-        fill: url(#skyGradient);
+      .sky { fill: url(#skyGradient); }
+      
+      /* Анимация дрейфа облаков */
+      @keyframes drift {
+        from { transform: translateX(850px); }
+        to { transform: translateX(-200px); }
+      }
+      
+      .cloud-slow {
+        animation: drift 50s linear infinite;
+        opacity: 0.4;
+      }
+      .cloud-fast {
+        animation: drift 35s linear infinite;
+        opacity: 0.6;
       }
     </style>
   </defs>
@@ -17,6 +30,27 @@
   <!-- СЛОЙ 1: НЕБО -->
   <rect class="sky" width="800" height="400" />
 
-  <!-- Здесь будут следующие слои -->
+  <!-- СЛОЙ 2А: ОБЛАКА (ЗАДНИЙ ПЛАН) -->
+  <!-- Медленное облако -->
+  <g class="cloud-slow" transform="translate(0, 40)">
+    <path d="M20,50 Q40,20 70,30 Q90,10 120,30 Q150,20 170,50 Z" fill="#ffffff" />
+  </g>
+
+  <!-- СЛОЙ 2Б: ГОРА ФУДЗИ -->
+  <g id="fuji" transform="translate(0, 40)">
+    <!-- Темный силуэт горы (основание) -->
+    <polygon points="250,310 400,100 550,310" fill="#3c4858" />
+    <!-- Снежная шапка (вершина) -->
+    <polygon points="363,150 400,100 437,150 425,165 410,155 400,170 390,155 375,165" fill="#ffffff" />
+  </g>
+
+  <!-- СЛОЙ 2В: ОБЛАКА (ПЕРЕД ГОРУ) -->
+  <!-- Более быстрое облако, пролетающее перед вершиной -->
+  <g class="cloud-fast" transform="translate(0, 90)">
+    <path d="M10,40 Q25,15 50,25 Q70,5 95,25 Q120,15 130,40 Z" fill="#ffffff" />
+  </g>
+
+  <!-- Здесь будут Сакура, Ствол и Панели -->
 
 </svg>
+
